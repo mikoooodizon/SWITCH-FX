@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <title>Switch FX</title>
+    <style>
+        .container {
+            max-width: 960px;
+            margin: auto;
+            padding: 2rem;
+        }
+        .logo {
+            height: 200px;
+        }
+        .flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .flex-column {
+            display: flex;
+            flex-direction: column;
+        }
+        .align-center {
+            align-items: center;
+        }
+        .justify-center {
+            justify-content: center;
+        }
+        nav ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        nav li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: inherit;
+        }
+        footer {
+            margin-top: 4rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="container flex align-center">
+        <img src= 'assets/bottom_left_logo.png' alt="Switch Logo" class="logo">
+        <ul class="flex">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+        <section id="services" class="flex-column justify-center">
+            <h1>HI! :) </h1>
+            <p> Welcome to the currency exchange platform between US Dollars and Philippine Pesos, specifically tailored for freelancers, agencies, and tourists.</p>
+            <p> Safe. Fast. Secure. </p>
+            <p> *Beta site. Nothing saved. </p>
+        </section>
+        <section id="calculator" class="flex-column justify-center">
+            <h2>Currency Calculator</h2>
+            <label for="amount">Enter amount in USD:</label>
+            <input type="number" id="amount" name="amount" placeholder="Amount in USD">
+            <button onclick="convertCurrency()">Convert to PHP</button>
+            <p id="result"></p>
+            <p>Note: Conversion fees start at 0.5% of the mid-market rate.</p>
+            <p>Assumes 1$ = PHP 56</p>
+            <script>
+                function convertCurrency() {
+                    var amount = document.getElementById('amount').value;
+                    var midMarketRate = 56; // Replace with real mid-market rate
+                    var conversionFee = 0.5 / 100;
+                    var convertedAmount = (amount * midMarketRate) * (1 - conversionFee);
+                    document.getElementById('result').innerText = 'Receiptent gets ' + 'PHP ' + convertedAmount.toFixed(2);
+                }
+            </script>
+        </section>
+        <section id="contact" class="flex-column justify-center">
+            <h2>Contact Us</h2>
+            <form>
+                <label for="exchangeDate">Date needed for the 'switch':</label>
+                <input type="date" id="exchangeDate" name="exchangeDate">
+                <label for="contactAmount">Amount in PHP or USD:</label>
+                <input type="number" id="contactAmount" name="contactAmount">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email">
+                <label for="phone">Philippine Number:</label>
+                <input type="text" id="phone" name="phone">
+                <label for="paymentMethod">Want to receive in:</label>
+                <select id="paymentMethod" name="paymentMethod">
+                    <option value="paypal">PayPal</option>
+                    <option value="gcash">GCash</option>
+                    <option value="maya">Maya</option>
+                    <option value="bank">Bank Account</option>
+                </select>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 SWITCH </p>
+    </footer>
+</body>
+</html>
